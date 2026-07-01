@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Survey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- SCREEN 1: Welcome -->
+<div id="screen-welcome" class="screen active">
+  <img src="banner.jpg" alt="Banner" class="banner-img" onerror="this.style.display='none'" />
+  <div class="welcome-title" data-t="welcome">Welcome</div>
+  <div class="lang-btns">
+    <button class="lang-btn" data-lang="hi">🇮🇳 हिन्दी</button>
+    <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+  </div>
+  <button class="btn btn-gold" id="btn-welcome-continue" style="max-width:300px;width:100%" data-t="continue">Continue →</button>
+</div>
+
+<!-- SCREEN 2: Introduction -->
+<div id="screen-intro" class="screen">
+  <div class="intro-card">
+    <ul id="intro-points"></ul>
+  </div>
+  <div class="prize-card">
+    <div class="prize-item">🥇 <span data-t="prize1">₹99</span></div>
+    <div class="prize-item">🥈 <span data-t="prize2">₹49</span></div>
+    <div class="muted" data-t="luckyDraw">Lucky Draw</div>
+  </div>
+  <label class="agree-row">
+    <input type="checkbox" id="agree-check" />
+    <span data-t="agreeText">I agree to provide truthful information.</span>
+  </label>
+  <button class="btn btn-primary btn-full" id="btn-start" disabled data-t="startSurvey">Start Survey</button>
+</div>
+
+<!-- SCREEN 3: Survey -->
+<div id="screen-survey" class="screen">
+  <div class="survey-header">
+    <div class="progress-label" id="progress-label">Question 1 of 25</div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar" style="width:0%"></div></div>
+  </div>
+  <div class="question-area" id="question-area"></div>
+  <div class="survey-nav">
+    <button class="btn btn-secondary" id="btn-back" data-t="back">← Back</button>
+    <button class="btn btn-primary" id="btn-next" data-t="next">Next →</button>
+  </div>
+</div>
+
+<!-- SCREEN: Survey Closed -->
+<div id="screen-closed" class="screen">
+  <div class="closed-icon">🔒</div>
+  <div class="closed-title" data-t="surveyClosed">Survey Closed</div>
+  <p class="muted" data-t="surveyClosedMsg">We are no longer accepting responses. Thank you for your interest.</p>
+</div>
+
+<!-- SCREEN: Countdown -->
+<div id="screen-countdown" class="screen">
+  <div class="ty-emoji">🎉</div>
+  <div class="countdown-title" data-t="winnerSoon">Winner announcement in</div>
+  <div class="countdown-timer" id="countdown-display">--:--</div>
+  <p style="color:rgba(255,255,255,.8);font-size:.95rem" data-t="stayTuned">Stay tuned!</p>
+</div>
+
+<!-- SCREEN: Thank You -->
+<div id="screen-thankyou" class="screen">
+  <div class="ty-emoji">🎉</div>
+  <div class="ty-title" data-t="thankYou">Thank You!</div>
+  <div class="ty-card">
+    <div style="font-size:.85rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:1px" data-t="yourId">Your Participant ID</div>
+    <div class="participant-id" id="participant-id-display">SURV-2026-0000</div>
+    <div class="ty-note" data-t="keepId">Please keep this ID safe for the lucky draw.</div>
+  </div>
+  <div class="prize-info">
+    🎁 <strong data-t="luckyDraw">Lucky Draw</strong><br/>
+    <span style="opacity:.9">🥇 ₹99 &nbsp;·&nbsp; 🥈 ₹49</span><br/>
+    <span style="opacity:.7;font-size:.88rem" data-t="winnerAnnounced">Winners announced after survey closes.</span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
